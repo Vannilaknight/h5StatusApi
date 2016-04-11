@@ -11,7 +11,7 @@ module.exports = function (config, h5) {
 
     var db = mongojs(config.db, ['playerData']);
 
-    var broker = magicbus.createBroker('h5', 'api', 'amqp://docker.dev:5672/');
+    var broker = magicbus.createBroker('h5', 'api', config.rabbit);
     var publisher = magicbus.createPublisher(broker);
 
     h5.metadata.gameBaseVariants().then(function(data){
