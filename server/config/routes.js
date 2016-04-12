@@ -40,6 +40,10 @@ module.exports = function (app, config, h5) {
         res.send(404);
     });
 
+    app.get('/', function(req, res){
+        res.send('Hello yes I am API');
+    });
+
     app.get('*', function (req, res) {
         res.render('index', {
             bootstrappedUser: req.user
